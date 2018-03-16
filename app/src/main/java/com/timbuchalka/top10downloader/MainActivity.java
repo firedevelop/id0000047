@@ -31,12 +31,6 @@ public class MainActivity extends AppCompatActivity {
         private static final String TAG = "DownloadData";
 
         @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            Log.d(TAG, "onPostExecute: parameter is " + s);
-        }
-
-        @Override
         protected String doInBackground(String... urlPath) {
             Log.d(TAG, "doInBackground: starts with " + urlPath[0]);
             String rssFeed = downloadXML(urlPath[0]);
@@ -79,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.d(TAG, "onPostExecute: parameter is " + s);
         }
     }
 }
